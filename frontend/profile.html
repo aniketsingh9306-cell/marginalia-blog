@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your profile — Marginalia</title>
+<link rel="stylesheet" href="css/style.css">
+<style>
+  .profile-wrap { max-width: 640px; margin: 0 auto; }
+  .profile-avatar {
+    width: 72px; height: 72px; border-radius: 50%;
+    background: var(--gold); color: var(--ink);
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--font-display); font-weight: 700; font-size: 1.8rem;
+    margin-bottom: 20px;
+  }
+  .profile-stats {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px;
+    margin: 24px 0 36px;
+  }
+  .profile-stats .stat {
+    background: #fff; border: 1px solid var(--line); border-radius: var(--radius);
+    padding: 16px; text-align: center;
+  }
+  .profile-stats .stat-num {
+    font-family: var(--font-display); font-size: 1.7rem; color: var(--ink); display: block;
+  }
+  .profile-stats .stat-label {
+    font-family: var(--font-mono); font-size: 0.66rem; letter-spacing: 0.05em;
+    text-transform: uppercase; color: var(--text-muted);
+  }
+  .profile-section {
+    background: #fff; border: 1px solid var(--line); border-radius: var(--radius);
+    padding: 28px; margin-bottom: 24px;
+  }
+  .profile-section h2 { font-size: 1.2rem; margin-bottom: 6px; }
+  .profile-section .section-sub { color: var(--text-muted); font-size: 0.88rem; margin: 0 0 20px; }
+  .meta-row {
+    display: flex; justify-content: space-between; padding: 10px 0;
+    border-bottom: 1px dashed var(--line); font-size: 0.92rem;
+  }
+  .meta-row:last-child { border-bottom: none; }
+  .meta-row span:first-child { color: var(--text-muted); font-family: var(--font-mono); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.04em; }
+  @media (max-width: 480px) {
+    .profile-stats { grid-template-columns: 1fr; }
+    .meta-row { flex-direction: column; align-items: flex-start; gap: 4px; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="container">
+    <a href="index.html" class="brand">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M4 20L14.5 9.5L18 13L7.5 23.5H4V20Z" fill="#C89B3C"/>
+        <path d="M16 5.5L18.5 3C19.3 2.2 20.6 2.2 21.4 3C22.2 3.8 22.2 5.1 21.4 5.9L18.9 8.4L16 5.5Z" fill="#C89B3C"/>
+      </svg>
+      Marginalia
+    </a>
+    <button class="nav-toggle" aria-label="Toggle menu">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    </button>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="create-blog.html">Write</a>
+      <a href="profile.html" class="active">Profile</a>
+    </div>
+  </div>
+</nav>
+
+<header class="dash-header" style="padding-bottom:32px;">
+  <div class="container">
+    <p class="eyebrow">Account</p>
+    <h1>Your profile</h1>
+    <p>Manage your account details and see how your notebook is growing.</p>
+  </div>
+</header>
+
+<section class="section">
+  <div class="container profile-wrap">
+
+    <div id="profile-loading" class="state-msg" style="color:var(--text-muted);font-style:italic;">Loading your profile&hellip;</div>
+
+    <div id="profile-content" style="display:none;">
+      <div class="profile-avatar" id="profile-avatar">M</div>
+
+      <div class="profile-stats">
+        <div class="stat"><span class="stat-num" id="profile-total">0</span><span class="stat-label">Total posts</span></div>
+        <div class="stat"><span class="stat-num" id="profile-published">0</span><span class="stat-label">Published</span></div>
+        <div class="stat"><span class="stat-num" id="profile-drafts">0</span><span class="stat-label">Drafts</span></div>
+      </div>
+
+      <div class="profile-section">
+        <h2>Account details</h2>
+        <p class="section-sub">Your basic account information.</p>
+        <div class="meta-row"><span>Name</span><span id="meta-name"></span></div>
+        <div class="meta-row"><span>Email</span><span id="meta-email"></span></div>
+        <div class="meta-row"><span>Member since</span><span id="meta-joined"></span></div>
+      </div>
+
+      <div class="profile-section">
+        <h2>Update your name</h2>
+        <p class="section-sub">This is the name shown on your posts.</p>
+        <div class="success-banner" id="name-success"></div>
+        <form id="name-form" novalidate>
+          <div class="field" id="name-field">
+            <label for="profile-name">Full name</label>
+            <input type="text" id="profile-name" name="name">
+            <span class="error-msg">Name must be at least 2 characters.</span>
+          </div>
+          <button type="submit" class="btn btn-primary">Save name</button>
+        </form>
+      </div>
+
+      <div class="profile-section">
+        <h2>Change password</h2>
+        <p class="section-sub">Enter your current password to set a new one.</p>
+        <div class="success-banner" id="password-success"></div>
+        <form id="password-form" novalidate>
+          <div class="field" id="current-password-field">
+            <label for="current-password">Current password</label>
+            <input type="password" id="current-password" autocomplete="current-password">
+            <span class="error-msg">Enter your current password.</span>
+          </div>
+          <div class="field" id="new-password-field">
+            <label for="new-password">New password</label>
+            <input type="password" id="new-password" autocomplete="new-password">
+            <span class="error-msg">New password must be at least 6 characters.</span>
+          </div>
+          <button type="submit" class="btn btn-primary">Update password</button>
+        </form>
+      </div>
+
+      <button id="logout-btn-profile" class="btn btn-ghost btn-block">Log out</button>
+    </div>
+
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <span>&copy; 2026 Marginalia.</span>
+    <a href="dashboard.html">Dashboard</a>
+  </div>
+</footer>
+
+<script src="js/config.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

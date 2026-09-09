@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard — Marginalia</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="container">
+    <a href="index.html" class="brand">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M4 20L14.5 9.5L18 13L7.5 23.5H4V20Z" fill="#C89B3C"/>
+        <path d="M16 5.5L18.5 3C19.3 2.2 20.6 2.2 21.4 3C22.2 3.8 22.2 5.1 21.4 5.9L18.9 8.4L16 5.5Z" fill="#C89B3C"/>
+      </svg>
+      Marginalia
+    </a>
+    <button class="nav-toggle" aria-label="Toggle menu">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    </button>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="dashboard.html" class="active">Dashboard</a>
+      <a href="create-blog.html">Write</a>
+      <a href="login.html" class="nav-guest-item">Log in</a>
+      <a href="register.html" class="nav-cta nav-guest-item">Get started</a>
+      <a href="profile.html" class="nav-user-item">Profile</a>
+      <button class="nav-logout-link nav-user-item" id="nav-logout-btn">Log out</button>
+    </div>
+  </div>
+</nav>
+
+<header class="dash-header">
+  <div class="container">
+    <p class="eyebrow" id="dash-greeting">Your notebook</p>
+    <h1>Your dashboard</h1>
+    <p>Everything you've drafted or published, in one place.</p>
+    <div class="dash-stats">
+      <div class="stat"><span class="stat-num" id="stat-total">0</span><span class="stat-label">Total posts</span></div>
+      <div class="stat"><span class="stat-num" id="stat-published">0</span><span class="stat-label">Published</span></div>
+      <div class="stat"><span class="stat-num" id="stat-draft">0</span><span class="stat-label">Drafts</span></div>
+      <div class="stat"><span class="stat-num" id="stat-views">0</span><span class="stat-label">Total views</span></div>
+    </div>
+    <button id="logout-btn" class="btn btn-ghost" style="border-color:#3a4152;color:#efe9d8;margin-top:20px;">Log out</button>
+  </div>
+</header>
+
+<section class="section">
+  <div class="container">
+    <div class="dash-toolbar">
+      <h2>Your posts</h2>
+      <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
+        <input type="text" id="dash-search" placeholder="Search your posts&hellip;" style="font-family:var(--font-body);font-size:0.88rem;padding:9px 14px;border:1px solid var(--line);border-radius:var(--radius);min-width:200px;">
+        <div class="filter-tabs">
+          <button class="active" data-status="all">All</button>
+          <button data-status="published">Published</button>
+          <button data-status="draft">Draft</button>
+        </div>
+        <a href="create-blog.html" class="btn btn-gold">+ New post</a>
+      </div>
+    </div>
+
+    <table class="post-table">
+      <thead>
+        <tr>
+          <th>Post</th>
+          <th>Status</th>
+          <th>Last edited</th>
+          <th>Views</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody id="dash-post-body">
+        <tr><td colspan="5">Loading your posts&hellip;</td></tr>
+      </tbody>
+    </table>
+
+    <div class="form-note" style="margin-top:24px;">Posts are loaded live from the Marginalia backend API and persist in MongoDB. Click a post title to view it on its own page.</div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <span>&copy; 2026 Marginalia.</span>
+    <a href="create-blog.html">Write a post</a>
+  </div>
+</footer>
+
+<script src="js/config.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

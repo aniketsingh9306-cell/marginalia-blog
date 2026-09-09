@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Write a post — Marginalia</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="container">
+    <a href="index.html" class="brand">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M4 20L14.5 9.5L18 13L7.5 23.5H4V20Z" fill="#C89B3C"/>
+        <path d="M16 5.5L18.5 3C19.3 2.2 20.6 2.2 21.4 3C22.2 3.8 22.2 5.1 21.4 5.9L18.9 8.4L16 5.5Z" fill="#C89B3C"/>
+      </svg>
+      Marginalia
+    </a>
+    <button class="nav-toggle" aria-label="Toggle menu">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    </button>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="create-blog.html" class="active">Write</a>
+      <a href="login.html" class="nav-guest-item">Log in</a>
+      <a href="register.html" class="nav-cta nav-guest-item">Get started</a>
+      <a href="profile.html" class="nav-user-item">Profile</a>
+      <button class="nav-logout-link nav-user-item" id="nav-logout-btn">Log out</button>
+    </div>
+  </div>
+</nav>
+
+<header class="dash-header" style="padding-bottom:32px;">
+  <div class="container">
+    <p class="eyebrow" id="editor-eyebrow">New entry</p>
+    <h1 id="editor-heading">Write a post</h1>
+    <p>Draft on the left. See exactly what a reader would see on the right.</p>
+  </div>
+</header>
+
+<section class="section">
+  <div class="container">
+    <div class="success-banner" id="create-success" style="margin-bottom:24px;"></div>
+
+    <form id="create-blog-form" novalidate>
+      <div class="editor-wrap">
+        <div class="editor-panel">
+          <p class="eyebrow" style="margin-bottom:18px;">Draft</p>
+
+          <div class="field" id="post-title-field">
+            <label for="post-title">Title</label>
+            <input type="text" id="post-title" name="title" placeholder="Give your post a title">
+            <span class="error-msg">Give your post a title (3+ characters).</span>
+          </div>
+
+          <div class="field" id="post-tag-field">
+            <label for="post-tag">Tag</label>
+            <input type="text" id="post-tag" name="tag" placeholder="e.g. Process, Notes, Design">
+          </div>
+
+          <div class="field" id="post-body-field">
+            <label for="post-body">Body</label>
+            <textarea id="post-body" name="body" rows="12" placeholder="Start writing here. It doesn't have to be good yet — it just has to be honest."></textarea>
+            <span class="error-msg">Write at least a few sentences before publishing.</span>
+          </div>
+
+          <div class="word-count" id="word-count">0 words</div>
+
+          <div class="editor-actions">
+            <button type="submit" id="publish-btn" class="btn btn-primary">Publish post</button>
+            <button type="button" id="save-draft-btn" class="btn btn-ghost">Save as draft</button>
+            <button type="button" id="cancel-edit-btn" class="btn btn-ghost" style="display:none;">Cancel</button>
+          </div>
+        </div>
+
+        <div class="preview-panel">
+          <p class="eyebrow">Live preview</p>
+          <p class="preview-empty" id="preview-empty">Nothing here yet — start typing on the left and your post will take shape.</p>
+          <article class="preview-post" style="display:none;">
+            <span class="tag" id="preview-tag" style="font-family:var(--font-mono);font-size:0.68rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--teal);display:inline-block;margin-bottom:10px;">UNTAGGED</span>
+            <h2 id="preview-title">Untitled post</h2>
+            <p class="preview-meta">BY JORDAN BLAKE &middot; JUST NOW</p>
+            <p class="preview-body" id="preview-body"></p>
+          </article>
+        </div>
+      </div>
+    </form>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <span>&copy; 2026 Marginalia.</span>
+    <a href="dashboard.html">Dashboard</a>
+  </div>
+</footer>
+
+<script src="js/config.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

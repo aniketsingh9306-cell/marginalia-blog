@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Post — Marginalia</title>
+<link rel="stylesheet" href="css/style.css">
+<style>
+  .post-detail { max-width: 720px; margin: 0 auto; }
+  .post-detail .tag {
+    font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--teal); display: inline-block; margin-bottom: 14px;
+  }
+  .post-detail h1 { font-size: 2.2rem; margin-bottom: 14px; }
+  .post-detail .meta {
+    font-family: var(--font-mono); font-size: 0.78rem; color: var(--text-muted);
+    border-bottom: 1px dashed var(--line); padding-bottom: 20px; margin-bottom: 28px;
+    display: flex; gap: 18px; flex-wrap: wrap;
+  }
+  .post-detail .body-text { font-size: 1.05rem; line-height: 1.7; white-space: pre-wrap; }
+  .post-detail .state-msg { color: var(--text-muted); font-style: italic; }
+  .back-link { display: inline-block; margin-bottom: 28px; color: var(--text-muted); text-decoration: none; font-family: var(--font-mono); font-size: 0.82rem; }
+  .back-link:hover { color: var(--text); }
+  @media (max-width: 480px) {
+    .post-detail h1 { font-size: 1.7rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="container">
+    <a href="index.html" class="brand">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M4 20L14.5 9.5L18 13L7.5 23.5H4V20Z" fill="#C89B3C"/>
+        <path d="M16 5.5L18.5 3C19.3 2.2 20.6 2.2 21.4 3C22.2 3.8 22.2 5.1 21.4 5.9L18.9 8.4L16 5.5Z" fill="#C89B3C"/>
+      </svg>
+      Marginalia
+    </a>
+    <button class="nav-toggle" aria-label="Toggle menu">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    </button>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="create-blog.html">Write</a>
+      <a href="login.html" class="nav-guest-item">Log in</a>
+      <a href="register.html" class="nav-cta nav-guest-item">Get started</a>
+      <a href="profile.html" class="nav-user-item">Profile</a>
+      <button class="nav-logout-link nav-user-item" id="nav-logout-btn">Log out</button>
+    </div>
+  </div>
+</nav>
+
+<section class="section">
+  <div class="container post-detail">
+    <a href="dashboard.html" class="back-link">&larr; Back to dashboard</a>
+    <div id="post-content">
+      <p class="state-msg">Loading post&hellip;</p>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <span>&copy; 2026 Marginalia.</span>
+    <a href="dashboard.html">Dashboard</a>
+  </div>
+</footer>
+
+<script src="js/config.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

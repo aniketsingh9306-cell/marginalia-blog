@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Log in — Marginalia</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="container">
+    <a href="index.html" class="brand">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M4 20L14.5 9.5L18 13L7.5 23.5H4V20Z" fill="#C89B3C"/>
+        <path d="M16 5.5L18.5 3C19.3 2.2 20.6 2.2 21.4 3C22.2 3.8 22.2 5.1 21.4 5.9L18.9 8.4L16 5.5Z" fill="#C89B3C"/>
+      </svg>
+      Marginalia
+    </a>
+    <button class="nav-toggle" aria-label="Toggle menu">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    </button>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="create-blog.html">Write</a>
+      <a href="login.html" class="active nav-guest-item">Log in</a>
+      <a href="register.html" class="nav-cta nav-guest-item">Get started</a>
+      <a href="profile.html" class="nav-user-item">Profile</a>
+      <button class="nav-logout-link nav-user-item" id="nav-logout-btn">Log out</button>
+    </div>
+  </div>
+</nav>
+
+<main class="auth-wrap">
+  <div class="auth-panel">
+    <span class="quote-mark">&ldquo;</span>
+    <blockquote>I write to find out what I think. The page argues back.</blockquote>
+    <cite>&mdash; FROM A DRAFT, NEVER PUBLISHED</cite>
+  </div>
+  <div class="auth-form-side">
+    <div class="auth-box">
+      <h1>Welcome back</h1>
+      <p class="sub">Log in to pick up where your last draft left off.</p>
+
+      <div class="success-banner" id="login-success"></div>
+
+      <form id="login-form" novalidate>
+        <div class="field" id="login-email-field">
+          <label for="login-email">Email</label>
+          <input type="email" id="login-email" name="email" placeholder="you@example.com" autocomplete="email">
+          <span class="error-msg">Enter a valid email address.</span>
+        </div>
+        <div class="field" id="login-password-field">
+          <label for="login-password">Password</label>
+          <input type="password" id="login-password" name="password" placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;" autocomplete="current-password">
+          <span class="error-msg">Password must be at least 6 characters.</span>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Log in</button>
+      </form>
+
+      <p class="form-foot">New to Marginalia? <a href="register.html">Create an account</a></p>
+
+     <div class="form-note">Login successful.</div>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <span>&copy; 2026 Marginalia.</span>
+    <a href="dashboard.html">Dashboard</a>
+  </div>
+</footer>
+
+<script src="js/config.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

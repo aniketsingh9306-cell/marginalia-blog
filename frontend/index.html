@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Marginalia — a home for your notes</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="container">
+    <a href="index.html" class="brand">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M4 20L14.5 9.5L18 13L7.5 23.5H4V20Z" fill="#C89B3C"/>
+        <path d="M16 5.5L18.5 3C19.3 2.2 20.6 2.2 21.4 3C22.2 3.8 22.2 5.1 21.4 5.9L18.9 8.4L16 5.5Z" fill="#C89B3C"/>
+      </svg>
+      Marginalia
+    </a>
+    <button class="nav-toggle" aria-label="Toggle menu">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    </button>
+    <div class="nav-links">
+      <a href="index.html" class="active">Home</a>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="create-blog.html">Write</a>
+      <a href="login.html" class="nav-guest-item">Log in</a>
+      <a href="register.html" class="nav-cta nav-guest-item">Get started</a>
+      <a href="profile.html" class="nav-user-item">Profile</a>
+      <button class="nav-logout-link nav-user-item" id="nav-logout-btn">Log out</button>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="container hero-grid">
+    <div>
+      <p class="eyebrow" style="color:#9aa0ad;margin-bottom:16px;">A quiet place to draft, not perform</p>
+      <h1>Write in the margins<span class="cursor"></span></h1>
+      <p class="lede">Marginalia is a small blogging app for people who think by writing. Sketch a draft, sit with it, publish when it's ready — no algorithm watching over your shoulder.</p>
+      <div class="hero-actions">
+        <a href="register.html" class="btn btn-gold">Create your account</a>
+        <a href="login.html" class="btn btn-ghost" style="border-color:#3a4152;color:#efe9d8;">I already write here</a>
+      </div>
+    </div>
+    <div class="hero-card">
+      <span class="eyebrow">Draft &middot; 04</span>
+      <h3>On the usefulness of unfinished thoughts</h3>
+      <p>Most of what I write never gets published. That used to feel like failure. Lately I think the drafts are the point&hellip;</p>
+      <div class="card-meta">
+        <span>6 MIN READ</span>
+        <span>REVISED TODAY</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">How it works</p>
+        <h2>Three steps, no ceremony</h2>
+      </div>
+      <p>Register, write, and publish — powered by a real backend and database.</p>
+    </div>
+    <div class="feature-grid">
+      <div class="feature">
+        <span class="num">01</span>
+        <h3>Register in a minute</h3>
+        <p>One form, three fields. No email verification maze — just enough friction to feel real, not enough to feel like work.</p>
+      </div>
+      <div class="feature">
+        <span class="num">02</span>
+        <h3>Draft in the open editor</h3>
+        <p>A plain textarea with a live preview beside it, so you always see the page a reader will actually see.</p>
+      </div>
+      <div class="feature">
+        <span class="num">03</span>
+        <h3>Track it from your dashboard</h3>
+        <p>Every draft and published post in one table, filterable by status, editable in a click.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0;">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">From the notebook</p>
+        <h2>Recent entries</h2>
+      </div>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;">
+        <input type="text" id="home-search" placeholder="Search posts&hellip;" style="font-family:var(--font-body);font-size:0.9rem;padding:10px 14px;border:1px solid var(--line);border-radius:var(--radius);min-width:200px;">
+        <select id="home-tag-filter" style="font-family:var(--font-body);font-size:0.9rem;padding:10px 14px;border:1px solid var(--line);border-radius:var(--radius);background:#fff;">
+          <option value="all">All categories</option>
+        </select>
+      </div>
+    </div>
+    <p class="preview-empty" id="home-empty-state" style="display:none;color:var(--text-muted);font-style:italic;margin-bottom:24px;">No posts match your search.</p>
+    <div class="post-grid" id="home-post-grid">
+      <article class="post-card">
+        <span class="tag">Process</span>
+        <h3>Setting up a local dev environment, finally without fear</h3>
+        <p>A walkthrough of the tools I wish someone had explained to me plainly on day one.</p>
+        <div class="meta">DAY 1 &middot; HIGH PRIORITY</div>
+      </article>
+      <article class="post-card">
+        <span class="tag">Notes</span>
+        <h3>HTML, CSS, and JS are not three separate languages</h3>
+        <p>They're one conversation happening in three rooms. Here's how I stopped treating them like strangers.</p>
+        <div class="meta">DAY 2 &middot; DRAFT</div>
+      </article>
+      <article class="post-card">
+        <span class="tag">Design</span>
+        <h3>Designing a blog interface before you have any blogs</h3>
+        <p>Notes on building the shell first: what a page needs to say even when it's empty.</p>
+        <div class="meta">DAY 3 &middot; DRAFT</div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="container">
+    <h2>Start your first draft today</h2>
+    <p>It takes less time to register than it did to read this page.</p>
+    <a href="register.html" class="btn btn-primary">Create your account</a>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <span>&copy; 2026 Marginalia.</span>
+    <a href="dashboard.html">Dashboard</a>
+  </div>
+</footer>
+
+<script src="js/config.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
