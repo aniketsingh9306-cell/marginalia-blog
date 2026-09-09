@@ -334,8 +334,11 @@ if (editorBody) {
   const previewTitle = document.getElementById('preview-title');
   const previewBody = document.getElementById('preview-body');
   const previewTag = document.getElementById('preview-tag');
-  const previewEmpty = document.getElementById('preview-empty');
+    const previewEmpty = document.getElementById('preview-empty');
   const wordCountEl = document.getElementById('word-count');
+  const previewAuthor = document.getElementById('preview-author');
+  const currentUser = getUser();
+  if (previewAuthor && currentUser) previewAuthor.textContent = currentUser.name.toUpperCase();
 
   function updatePreview() {
     const title = editorTitle.value.trim();
